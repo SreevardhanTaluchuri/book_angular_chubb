@@ -1,0 +1,23 @@
+<div 
+class="list-group-item d-flex justify-content-center align-items-center">
+    <img [src]="book.image" alt="" style="width: 70px;height: 80px;" class="thumbnail" />
+    <div class="rounded-2" style="margin : 0 0 0 10px;height: 80px;">
+        <div class="fs-6 fw-light" style="width: 130px;">{{book.title}}</div>
+        <div class="fw-bolder" style="font-size: 13px;margin-top: 7px;margin : 0 0 0 10px;">{{book.price.displayValue.toString() | convertToINR : ""  | currency:"INR":'symbol':'1.2-2'}}</div> 
+
+    </div>
+    <!-- <app-button [book]="book"></app-button> -->
+    <div 
+      style="width: 100px;"
+      class="btn btn-primary btn-success d-flex justify-content-between align-items-center">
+        <button 
+        class="bg-transparent border-0 text-white" (click)="changeQuantity('-')">-</button>
+        <span>{{book.quantity}}</span>
+        <button class="bg-transparent border-0 text-white" (click)="changeQuantity('+')">+</button>
+      </div>
+    <!-- <div class="btn btn-success">
+        <button (click)="changeQuantity('-')">-</button>
+        <span>{{book.quantity}}</span>
+        <button (click)="changeQuantity('+')">+</button>
+      </div> -->
+</div>

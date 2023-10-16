@@ -1,0 +1,20 @@
+<div class="card" 
+style="width: 20rem;position: fixed;right: 40px;top : 30px;">
+    <div class="card-header h4">
+        Cart
+    </div>
+    <!-- <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div> -->
+    <ul style="max-height: 500px; height: 100%;overflow-y: scroll;" class="list-group list-group-flush">
+      <app-cart-item (updateQuantity)="emitQuantity($event , book.ISBN)" *ngFor="let book of cart" [book]="book"></app-cart-item>
+    </ul>
+    <div *ngIf="!cart.length" class="card-body">
+      <p class="font-weight-bolder fs-6">You dont have any items in your cart!</p>
+    </div>
+    <div *ngIf="cart.length" class="card-footer">
+      <span>Total: </span>
+      <span>{{cartService.total.toString()  | convertToINR : ""  | currency:"INR":'symbol':'1.2-2'}}</span> 
+    </div>
+  </div>

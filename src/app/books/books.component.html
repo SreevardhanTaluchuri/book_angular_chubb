@@ -1,0 +1,14 @@
+<div *ngIf="!isLoading" class="navbar navbar-light bg-light">
+  <div class="form-inline d-flex">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="filter"/>
+  </div>
+</div>
+<div style="max-width: 1000px; width: 100%;max-height: 100vh;height: 100%;" 
+class="d-flex flex-wrap">
+    <div *ngIf="isLoading"  style="max-width: 100vw;height: 100vh;width: 100%; display: flex;align-items: center; justify-content: center;">
+      <div class="spinner-border "style="width: 5rem; height: 5rem;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <app-book (productToBeUpdatedInCart)="updateCart($event)" [product]="productToBeUpdated" *ngFor="let book of filteredBooks" [book]="book"></app-book>
+</div>
